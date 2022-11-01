@@ -1,0 +1,86 @@
+<link rel="stylesheet" href="css/main.css">
+    <h3>Ecommerce Table</h3>
+    <form  action="/erdiagram" method="get">
+        <input type="submit" value="Er Diagram"></input>
+    </form>
+    <form  action="/" method="get">
+        <input type="submit" value="Query"></input>
+    </form>
+    <table>
+    <tr>
+        <td><form  action="/table" method="get">
+        <input type="hidden" id="query" name="query" value="select * from customer;"></input>
+        <input type="submit" value="Customer"></input>
+        </form></td>
+        <td><form  action="/table" method="get">
+        <input type="hidden" id="query" name="query" value="select * from admin;"></input>
+        <input type="submit" value="Admin"></input>
+        </form></td>
+        <td><form  action="/table" method="get">
+        <input type="hidden" id="query" name="query" value="select * from manager;"></input>
+        <input type="submit" value="Manager"></input>
+        </form></td>
+        <td><form  action="/table" method="get">
+        <input type="hidden" id="query" name="query" value="select * from employee;"></input>
+        <input type="submit" value="Employee"></input>
+        </form></td>
+        <td><form  action="/table" method="get">
+        <input type="hidden" id="query" name="query" value="select * from Store_location;"></input>
+        <input type="submit" value="Store location"></input>
+        </form></td>
+        <td><form  action="/table" method="get">
+        <input type="hidden" id="query" name="query" value="select * from Category;"></input>
+        <input type="submit" value="Category"></input>
+        </form></td>
+    </tr>
+    </table>
+    <table>
+    <tr>
+        <td><form  action="/table" method="get">
+        <input type="hidden" id="query" name="query" value="select * from subcategory;"></input>
+        <input type="submit" value="Sub Category"></input>
+        </form></td>
+        <td><form  action="/table" method="get">
+        <input type="hidden" id="query" name="query" value="select * from product;"></input>
+        <input type="submit" value="Product"></input>
+        </form></td>
+        <td><form  action="/table" method="get">
+        <input type="hidden" id="query" name="query" value="select * from review;"></input>
+        <input type="submit" value="Review"></input>
+        </form></td>
+        <td><form  action="/table" method="get">
+        <input type="hidden" id="query" name="query" value="select * from supplier;"></input>
+        <input type="submit" value="Supplier"></input>
+        </form></td>
+        <td><form  action="/table" method="get">
+        <input type="hidden" id="query" name="query" value="select * from Order_history;"></input>
+        <input type="submit" value="Order history"></input>
+        </form></td>
+        <td><form  action="/table" method="get">
+        <input type="hidden" id="query" name="query" value="select * from cart;"></input>
+        <input type="submit" value="Cart"></input>
+        </form></td>
+    </tr>
+    </table>
+    <br>
+    <table id="queryTable"">
+        <% if(data.result){
+            var flag=1;
+         for(const obj of data.result){ %>
+         <tr>
+          <% 
+          if(flag==1){
+            for(const key in obj) { %>
+           <th scope="row"><%= key %></th>
+          <% } 
+            flag=0}%>
+         </tr>
+         <tr>
+         <% for(const key in obj) { %>
+          <td><%= obj[key] %></td>
+         <% } %>
+         </tr>
+        <% }
+         } %> 
+    </table>
+    
