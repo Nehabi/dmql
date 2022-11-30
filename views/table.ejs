@@ -49,7 +49,7 @@
         <input type="submit" value="Review"></input>
         </form></td>
         <td><form  action="/table" method="get">
-        <input type="hidden" id="query" name="query" value="select * from supplier;"></input>
+        <input type="hidden" id="query" name="query" value="select * from supplier_info;"></input>
         <input type="submit" value="Supplier"></input>
         </form></td>
         <td><form  action="/table" method="get">
@@ -59,6 +59,10 @@
         <td><form  action="/table" method="get">
         <input type="hidden" id="query" name="query" value="select * from cart;"></input>
         <input type="submit" value="Cart"></input>
+        </form></td>
+        <td><form  action="/table" method="get">
+        <input type="hidden" id="query" name="query" value="select * from supplier_product;"></input>
+        <input type="submit" value="supplier_product"></input>
         </form></td>
     </tr>
     </table>
